@@ -5,12 +5,6 @@ public class Product {
     private double price;
     private int code;
 
-    Product(){
-        name = "default";
-        price = 0.0;
-        code = 0;
-    }
-
     Product(String name, double price, int code){
         this.name = name;
         this.price = price;

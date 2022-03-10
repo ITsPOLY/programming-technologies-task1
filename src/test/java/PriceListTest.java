@@ -23,17 +23,21 @@ public class PriceListTest {
     @Test
     public void changePrice() {
         Product good = new Product("Swallow", 25.5, 143);
-        Product expected = new Product("Swallow", 32.0, 143);
-        good.setPrice(32.0);
-        assertEquals(expected, good);
+        Product change = new Product("Swallow", 32.0, 143);
+        PriceList expected = new PriceList(change);
+        PriceList fact = new PriceList(good);
+        fact.changeProductPrice(143, 32.0);
+        assertEquals(expected, fact);
     }
 
     @Test
     public void changeName() {
         Product good = new Product("Swallow", 25.5, 143);
-        Product expected = new Product("Chamomile", 25.5, 143);
-        good.setName("Chamomile");
-        assertEquals(expected, good);
+        Product change = new Product("Chamomile", 25.5, 143);
+        PriceList expected = new PriceList(change);
+        PriceList fact = new PriceList(good);
+        fact.changeProductName(143, "Chamomile");
+        assertEquals(expected, fact);
     }
 
     @Test

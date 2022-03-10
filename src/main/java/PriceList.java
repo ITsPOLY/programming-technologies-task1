@@ -12,14 +12,29 @@ public class PriceList {
         list.remove(e);
     }
 
-    double result(int a, int b) {
+    double result(int inpCode, int inpCount) {
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getCode() == a) {
-                System.out.println(b * list.get(i).getPrice());
-                return b * list.get(i).getPrice();
+            if (list.get(i).getCode() == inpCode) {
+                System.out.println(inpCount * list.get(i).getPrice());
+                return inpCount * list.get(i).getPrice();
             }
         }
-        return 0.0;
+        throw new NullPointerException("Product not found");
+    }
+
+    void changeProductPrice(int inpCode, double inpNewPrice) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getCode() == inpCode) {
+                list.get(i).setPrice(inpNewPrice);
+            }
+        }
+    }
+    void changeProductName(int inpCode, String inpNewName) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getCode() == inpCode) {
+                list.get(i).setName(inpNewName);
+            }
+        }
     }
 
     PriceList(Product e){
